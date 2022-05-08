@@ -1,0 +1,16 @@
+.InputContainer{
+  width: 90%;
+  margin: 0 auto;
+  input{
+    width: 100%;
+    background-color: transparent;
+    outline: none;
+    border: none;    
+    border-bottom: 1px solid #ccc;
+    color: #ccc;
+    transition: 0.4s ease-in-out 0s;
+    &:focus{
+      border-bottom:1px solid salmon;
+    }
+  }
+}
