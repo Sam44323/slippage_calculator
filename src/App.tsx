@@ -5,11 +5,25 @@ import { Typography } from "antd";
 import Input from "./components/Input";
 
 const App: React.FC = () => {
-  const [usdp, setUsdp] = React.useState("");
-  const [eth, setEth] = React.useState("");
+  const [formData, setFormData] = React.useState<{
+    usdp: string;
+    eth: string;
+  }>({
+    usdp: "0.00",
+    eth: "0.00",
+  });
   const [focus, setFocus] = React.useState<"usdp" | "eth">("usdp");
   const [leverage, setLeverage] = React.useState(1);
   const [slippage, setSlippage] = React.useState(0.1);
+
+  const formHandler = (key: "usdp" | "eth", value: string) => {
+    console.log(parseFloat(value));
+    if (isNaN(parseFloat(value)) && value.length > 0) return;
+    setFormData({
+      ...formData,
+      [key]: value,
+    });
+  };
 
   return (
     <div className={styles.AppContainer}>
@@ -25,9 +39,9 @@ const App: React.FC = () => {
       </Typography>
       <section className={styles.inputContent}>
         <Input
-          value={usdp}
+          value={formData.usdp}
           name="USDP"
-          changeHandler={setUsdp}
+          changeHandler={formHandler}
           focusHandler={setFocus}
         />
       </section>
