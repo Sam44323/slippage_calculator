@@ -1,8 +1,7 @@
 import styles from "./App.module.scss";
-import "antd/dist/antd.css";
 
 function App() {
-  return <div className="App"></div>;
+  return <div className={styles.AppContainer}></div>;
 }
 
 export default App;
