@@ -44,6 +44,7 @@
   },
   "devDependencies": {
     "@types/antd": "^1.0.0",
-    "@types/node-sass": "^4.11.2"
+    "@types/node-sass": "^4.11.2",
+    "typescript-plugin-css-modules": "^3.4.0"
   }
 }
