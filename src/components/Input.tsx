@@ -22,11 +22,26 @@ const Input: React.FC<IProps> = (props) => {
       >
         Amount
       </Typography>
-      <input
-        value={props.value}
-        onChange={(e) => props.changeHandler(e.target.value)}
-        onFocus={() => props.focusHandler(props.name)}
-      />
+      <div
+        style={{
+          display: "flex",
+          justifyContent: "space-between",
+        }}
+      >
+        <input
+          value={props.value}
+          onChange={(e) => props.changeHandler(e.target.value)}
+          onFocus={() => props.focusHandler(props.name)}
+        />
+        <Typography
+          style={{
+            color: "white",
+            fontSize: "14px",
+          }}
+        >
+          {props.name}
+        </Typography>
+      </div>
     </div>
   );
 };
