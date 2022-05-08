@@ -103,6 +103,26 @@ const App: React.FC = () => {
             </Typography>
           </div>
         </div>
+        <div className={styles.slippageToleranceValue}>
+          <section className={styles.headerContainer}>
+            <Typography
+              style={{
+                color: "#ccc",
+                fontSize: "1rem",
+              }}
+            >
+              Slippage Tolerance
+            </Typography>
+            <Typography
+              style={{
+                color: "white",
+                fontSize: "1rem",
+              }}
+            >
+              {slippage}%
+            </Typography>
+          </section>
+        </div>
       </section>
     </div>
   );
