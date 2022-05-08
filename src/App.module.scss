@@ -2,7 +2,14 @@
   background-color: #000;
   height: 80vh;
   width: 30%;
+  max-width: 700px;
   margin: 0 auto;
   margin-top: 30px;
   border-radius: 10px;
+  .bottomContainer{
+    .sliderContainer{
+      width: 90%;
+      margin: 0 auto;
+    }
+  }
 }

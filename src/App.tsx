@@ -1,6 +1,6 @@
 import React from "react";
 import styles from "./App.module.scss";
-import { Typography } from "antd";
+import { Typography, Slider } from "antd";
 
 import Input from "./components/Input";
 
@@ -44,6 +44,65 @@ const App: React.FC = () => {
           changeHandler={formHandler}
           focusHandler={setFocus}
         />
+        <Input
+          value={formData.eth}
+          name="ETH"
+          changeHandler={formHandler}
+          focusHandler={setFocus}
+        />
+      </section>
+      <section className={styles.bottomContainer}>
+        <Typography
+          style={{
+            color: "white",
+            fontSize: "1rem",
+            textAlign: "right",
+            paddingTop: "1rem",
+            paddingRight: "19px",
+          }}
+        >
+          {leverage}X
+        </Typography>
+        <div className={styles.sliderContainer}>
+          <Slider
+            value={leverage}
+            min={1}
+            max={10}
+            dots
+            trackStyle={{
+              backgroundColor: "salmon",
+            }}
+            handleStyle={{
+              backgroundColor: "black",
+            }}
+            onChange={(value) => setLeverage(value)}
+          />
+          <div
+            style={{
+              display: "flex",
+              justifyContent: "space-between",
+            }}
+          >
+            <Typography
+              style={{
+                color: "white",
+                fontSize: "1rem",
+                opacity: 0.5,
+              }}
+            >
+              1X
+            </Typography>
+            <Typography
+              style={{
+                color: "white",
+                fontSize: "1rem",
+                opacity: 0.5,
+              }}
+            >
+              10X
+            </Typography>
+          </div>
+        </div>
       </section>
     </div>
   );
