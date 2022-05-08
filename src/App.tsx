@@ -24,7 +24,12 @@ const App: React.FC = () => {
         Slippage Calculator
       </Typography>
       <section className={styles.inputContent}>
-        <Input value={usdp} name="USDP" changeHandler={setUsdp} />
+        <Input
+          value={usdp}
+          name="USDP"
+          changeHandler={setUsdp}
+          focusHandler={setFocus}
+        />
       </section>
     </div>
   );
