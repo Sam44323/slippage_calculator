@@ -129,6 +129,7 @@ const App: React.FC = () => {
           </section>
           <section className={styles.slippageValues}>
             <Options
+              active={slippage.type === "defined" && slippage.value === "0.1"}
               value="0.1"
               clickHandler={() =>
                 setSlippage({
@@ -138,6 +139,7 @@ const App: React.FC = () => {
               }
             />
             <Options
+              active={slippage.type === "defined" && slippage.value === "0.5"}
               value="0.5"
               clickHandler={() =>
                 setSlippage({
@@ -147,6 +149,7 @@ const App: React.FC = () => {
               }
             />
             <Options
+              active={slippage.type === "defined" && slippage.value === "1"}
               value="1"
               clickHandler={() =>
                 setSlippage({
