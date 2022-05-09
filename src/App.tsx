@@ -18,7 +18,7 @@ const App: React.FC = () => {
   const [leverage, setLeverage] = React.useState(1);
   const [slippage, setSlippage] = React.useState({
     type: "defined",
-    value: 0.1,
+    value: "0.1",
   });
 
   const formHandler = (key: "usdp" | "eth", value: string) => {
@@ -133,7 +133,7 @@ const App: React.FC = () => {
               clickHandler={() =>
                 setSlippage({
                   type: "defined",
-                  value: 0.1,
+                  value: "0.1",
                 })
               }
             />
@@ -142,7 +142,7 @@ const App: React.FC = () => {
               clickHandler={() =>
                 setSlippage({
                   type: "defined",
-                  value: 0.5,
+                  value: "0.5",
                 })
               }
             />
@@ -151,7 +151,7 @@ const App: React.FC = () => {
               clickHandler={() =>
                 setSlippage({
                   type: "defined",
-                  value: 1,
+                  value: "1",
                 })
               }
             />
@@ -159,10 +159,21 @@ const App: React.FC = () => {
               <input
                 placeholder="Others"
                 value={slippage.type === "custom" ? slippage.value : ""}
+                onChange={(e) => {
+                  if (
+                    isNaN(parseFloat(e.target.value)) &&
+                    e.target.value.length > 0
+                  )
+                    return;
+                  setSlippage({
+                    type: "custom",
+                    value: e.target.value,
+                  });
+                }}
                 onFocus={() =>
                   setSlippage({
                     type: "custom",
-                    value: 0,
+                    value: "0",
                   })
                 }
               />
