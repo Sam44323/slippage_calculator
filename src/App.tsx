@@ -24,7 +24,9 @@ const App: React.FC = () => {
   const formHandler = (key: "usdp" | "eth", value: string) => {
     console.log(parseFloat(value));
     if (isNaN(parseFloat(value)) && value.length > 0) return;
-    setFocus(key);
+    if (key !== focus) {
+      setFocus(key);
+    }
     setFormData({
       ...formData,
       [key]: value,
