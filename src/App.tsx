@@ -24,11 +24,14 @@ const App: React.FC = () => {
   const formHandler = (key: "usdp" | "eth", value: string) => {
     console.log(parseFloat(value));
     if (isNaN(parseFloat(value)) && value.length > 0) return;
+    setFocus(key);
     setFormData({
       ...formData,
       [key]: value,
     });
   };
+
+  console.log(focus);
 
   return (
     <div className={styles.AppContainer}>
@@ -43,18 +46,8 @@ const App: React.FC = () => {
         Slippage Calculator
       </Typography>
       <section className={styles.inputContent}>
-        <Input
-          value={formData.usdp}
-          name="USDP"
-          changeHandler={formHandler}
-          focusHandler={setFocus}
-        />
-        <Input
-          value={formData.eth}
-          name="ETH"
-          changeHandler={formHandler}
-          focusHandler={setFocus}
-        />
+        <Input value={formData.usdp} name="USDP" changeHandler={formHandler} />
+        <Input value={formData.eth} name="ETH" changeHandler={formHandler} />
       </section>
       <section className={styles.bottomContainer}>
         <Typography

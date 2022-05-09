@@ -6,7 +6,6 @@ import styles from "../styles/components/Input.module.scss";
 interface IProps {
   name: string;
   changeHandler: (key: "usdp" | "eth", value: string) => void;
-  focusHandler: any;
   value: string;
 }
 
@@ -33,7 +32,6 @@ const Input: React.FC<IProps> = (props) => {
           onChange={(e) =>
             props.changeHandler(props.name.toLowerCase() as any, e.target.value)
           }
-          onFocus={() => props.focusHandler(props.name)}
         />
         <Typography
           style={{
