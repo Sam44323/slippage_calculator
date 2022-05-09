@@ -1,0 +1,14 @@
+.OptionsContainer{
+  color: #ccc;
+  border: 1.8px solid #fff;
+  text-align: center;
+  border-radius: 10px;
+  padding: 4px 6px;
+  transition: 0.4s ease-in-out 0s;
+  min-width: 60px;
+  &:hover{
+    background-color: #fff;
+    color: black;
+    cursor: pointer;
+  }
+}

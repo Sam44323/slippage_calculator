@@ -19,6 +19,23 @@
         margin: 0 auto;
         margin-top: 30px;
       }
+      .slippageValues{
+        width: 90%;
+        margin: 0 auto;
+        margin-top: 30px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        .customOption{
+          input{
+            color: #fff;
+            background-color: transparent;
+            outline: none;
+            border: none;
+            border: 1px solid #fff;
+          }
+        }
+      }
     }
   }
 }
