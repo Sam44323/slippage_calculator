@@ -5,6 +5,7 @@ import { Typography, Slider } from "antd";
 // components
 import Input from "./components/Input";
 import Options from "./components/Options";
+import { toast } from "react-toastify";
 
 const App: React.FC = () => {
   const [formData, setFormData] = React.useState<{
@@ -60,6 +61,27 @@ const App: React.FC = () => {
         usdp: data.toString(),
       });
     }
+  };
+
+  const buttonHandler = () => {
+    toast.info("Placing your order...", {
+      position: toast.POSITION.TOP_CENTER,
+      autoClose: 3000,
+      hideProgressBar: true,
+      theme: "dark",
+    });
+    setTimeout(() => {
+      toast.dismiss();
+      toast.success(
+        `Order placed! USDP: ${formData.usdp}, ETH: ${formData.eth}, Leverage: ${leverage}, Slippage: ${slippage}`,
+        {
+          position: toast.POSITION.TOP_CENTER,
+          autoClose: 3000,
+          hideProgressBar: true,
+          theme: "dark",
+        }
+      );
+    }, 3500);
   };
 
   return (
@@ -215,6 +237,7 @@ const App: React.FC = () => {
           }}
         >
           <button
+            onClick={buttonHandler}
             className={styles.orderButton}
             disabled={formData.eth === "0.00" || formData.usdp === "0.00"}
           >
