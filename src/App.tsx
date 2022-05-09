@@ -22,18 +22,45 @@ const App: React.FC = () => {
   });
 
   const formHandler = (key: "usdp" | "eth", value: string) => {
-    console.log(parseFloat(value));
     if (isNaN(parseFloat(value)) && value.length > 0) return;
     if (key !== focus) {
       setFocus(key);
     }
-    setFormData({
-      ...formData,
-      [key]: value,
-    });
+    let data;
+    if (key === "usdp") {
+      data = parseFloat(((parseFloat(value) * 1000) / leverage).toFixed(2));
+      setFormData({
+        ...formData,
+        [key]: value,
+        eth: isNaN(data) ? "0.00" : data.toString(),
+      });
+    } else {
+      data = parseFloat(((parseFloat(value) * leverage) / 1000).toFixed(2));
+      setFormData({
+        ...formData,
+        [key]: value,
+        usdp: isNaN(data) ? "0.00" : data.toString(),
+      });
+    }
   };
 
-  console.log(focus);
+  const leverageHandler = (value: number) => {
+    setLeverage(value);
+    let data;
+    if (focus === "usdp") {
+      data = ((parseFloat(formData.usdp) * 1000) / leverage).toFixed(2);
+      setFormData({
+        ...formData,
+        eth: data,
+      });
+    } else {
+      data = ((parseFloat(formData.eth) * leverage) / 1000).toFixed(2);
+      setFormData({
+        ...formData,
+        usdp: data.toString(),
+      });
+    }
+  };
 
   return (
     <div className={styles.AppContainer}>
@@ -75,7 +102,7 @@ const App: React.FC = () => {
             handleStyle={{
               backgroundColor: "black",
             }}
-            onChange={(value) => setLeverage(value)}
+            onChange={leverageHandler}
           />
           <div
             style={{
@@ -158,9 +185,12 @@ const App: React.FC = () => {
                 placeholder="Others"
                 value={slippage.type === "custom" ? slippage.value : ""}
                 onChange={(e) => {
+                  console.log(parseFloat(e.target.value));
                   if (
-                    isNaN(parseFloat(e.target.value)) &&
-                    e.target.value.length > 0
+                    (isNaN(parseFloat(e.target.value)) &&
+                      e.target.value.length > 0) ||
+                    parseFloat(e.target.value) < 0 ||
+                    parseFloat(e.target.value) > 5
                   )
                     return;
                   setSlippage({
