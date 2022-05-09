@@ -36,6 +36,24 @@
           }
         }
       }
-    }
+  }
+}
+}
+
+.orderButton {
+  background-color: salmon;
+  border: none;
+  outline: none;
+  border-radius: 10px;
+  padding: 10px 14px;
+  font-size: 17px;
+  font-weight: 700;
+  width:70%;
+  margin-top: 3rem;
+  transition: 0.4s ease-in-out 0s;
+  &:hover{
+    cursor: pointer;
+    background-color: #fff;
+    color: #000;
   }
 }

@@ -180,6 +180,14 @@ const App: React.FC = () => {
             </div>
           </section>
         </div>
+        <div
+          style={{
+            display: "flex",
+            justifyContent: "center",
+          }}
+        >
+          <button className={styles.orderButton}>Place Market Order</button>
+        </div>
       </section>
     </div>
   );
