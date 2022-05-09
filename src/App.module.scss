@@ -1,11 +1,14 @@
 .AppContainer{
   background-color: #000;
-  height: 80vh;
+  min-height: 85vh;
   width: 30%;
   max-width: 700px;
   margin: 0 auto;
   margin-top: 30px;
   border-radius: 10px;
+  @media (max-width: 1100px){
+    width: 90%;
+  }
   .bottomContainer{
     .sliderContainer{
       width: 90%;
@@ -55,5 +58,8 @@
     cursor: pointer;
     background-color: #fff;
     color: #000;
+  }
+  &:disabled{
+    background-color: black;
   }
 }

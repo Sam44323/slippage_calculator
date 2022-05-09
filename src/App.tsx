@@ -214,7 +214,12 @@ const App: React.FC = () => {
             justifyContent: "center",
           }}
         >
-          <button className={styles.orderButton}>Place Market Order</button>
+          <button
+            className={styles.orderButton}
+            disabled={formData.eth === "0.00" || formData.usdp === "0.00"}
+          >
+            Place Market Order
+          </button>
         </div>
       </section>
     </div>
